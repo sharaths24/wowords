@@ -10,4 +10,4 @@ var Todo = new Schema({
 
 mongoose.model( 'Todo', Todo );
 
-mongoose.connect( 'mongodb://localhost/express-todo' );
+mongoose.connect( 'mongodb://sharaths24:rolodex@paulo.mongohq.com:10090/wowords' );
