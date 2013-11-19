@@ -1,7 +1,7 @@
 var mongoose = require( 'mongoose' );
 var Todo     = mongoose.model( 'Todo' );
 var utils    = require( 'connect' ).utils;
-var request = require('request');
+//var request = require('request');
 
 exports.index = function ( req, res, next ){
   var user_id = req.cookies ?
