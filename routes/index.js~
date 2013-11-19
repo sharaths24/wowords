@@ -20,12 +20,19 @@ exports.index = function ( req, res, next ){
     });
 };
 
-
 exports.create = function ( req, res, next ){
+
+
+  $.getJSON("https://graph.facebook.com/btaylor", function(person){
+
+    $.each(person, function(key, value){
+        document.write(key+": "+value+"<br />"); 
+    });
+  });
   new Todo({
-      user_id : req.cookies.user_id,
-      word : req.body.word,
-      comment:'test',
+      user_id    : req.cookies.user_id,
+      word    : req.body.word,
+      comment    :obj.result,  	
       updated_at : Date.now()
   }).save( function ( err, todo, count ){
     if( err ) return next( err );

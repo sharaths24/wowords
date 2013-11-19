@@ -103,7 +103,6 @@ body {
   margin: 0 auto;
   padding: 20px 0 15px;
   position: relative;
-  border: 1px solid #eeeeee;
 }
 
 /* line 38, ../sass/screen.sass */

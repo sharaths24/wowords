@@ -1,4 +1,6 @@
+<head>
 <h1 id="page-title">Wowords!</h1>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <div id="list">
   <form action="/create" method="post" accept-charset="utf-8">
     <div class="item-new">
@@ -6,6 +8,7 @@
     </div>
   </form>
 <br><br>
+</head>
 
 <% todos.forEach( function ( todo ){ %>
   <div class="item">
