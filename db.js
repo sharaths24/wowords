@@ -4,6 +4,7 @@ var Schema   = mongoose.Schema;
 var Todo = new Schema({
     user_id    : String,
     word    : String,
+    meaning    :String,
     comment    : String,	
     updated_at : Date
 });

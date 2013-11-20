@@ -118,7 +118,7 @@ body {
   padding: 8px 9px 9px;
   position: relative;
   text-shadow: 1px 1px 0 white;
-  width: 250px;
+  width: 500px;
 }
 /* line 49, ../sass/screen.sass */
 .item:hover, .item-new:hover {

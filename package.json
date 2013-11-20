@@ -9,6 +9,7 @@
     "mongoose" : "3.3.1",
     "natural"  : "0.1.17",
     "WNdb"     : "3.0.1",
+    "natural"  : "0.1.17",
     "mongodb" : "1.1.11"
   }
 }

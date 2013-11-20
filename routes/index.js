@@ -21,16 +21,32 @@ exports.index = function ( req, res, next ){
 };
 
 
-exports.create = function ( req, res, next ){
-  new Todo({
+exports.create = function ( req, res, next ){	
+  var natural = require('natural');
+  var wordnet = new natural.WordNet();
+  var word_meaning="";
+  console.log(req.body.word);
+  wordnet.lookup(req.body.word, function(results) {
+    results.forEach(function(result) {
+        console.log('------------------------------------');
+        //console.log(result.synsetOffset);
+        //console.log(result.pos);
+        //console.log(result.lemma);
+        //console.log(result.synonyms);
+        console.log(result.pos);
+        word_meaning = word_meaning + result.gloss+"\n-----------\n";
+    });
+      new Todo({
       user_id : req.cookies.user_id,
       word : req.body.word,
       comment:'test',
+      meaning:word_meaning,
       updated_at : Date.now()
   }).save( function ( err, todo, count ){
     if( err ) return next( err );
 
     res.redirect( '/' );
+  });
   });
 };
 

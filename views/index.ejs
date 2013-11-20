@@ -10,7 +10,8 @@
 <% todos.forEach( function ( todo ){ %>
   <div class="item">
     <a  title="word"><%= todo.word %></a>
-   <a class="del-btn" href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a><br><br>
+   <a class="del-btn" href="/destroy/<%= todo._id %>" title="Delete">Delete</a><br><br>
+   <textarea rows="4" cols="50" name="meaning"> <%= todo.meaning %> </textarea><br>
    <a class="update-link" href="/edit/<%= todo._id %>" title="comment"><%= todo.comment %></a>
   </div>
 <% }); %>
