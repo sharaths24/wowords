@@ -45,6 +45,8 @@ app.configure( 'development', function (){
   app.use( express.cookieParser());
   app.use( express.bodyParser());
   app.use( routes.current_user );
+  app.use(express.methodOverride());
+  app.use(express.session({ secret: 'keyboard cat' }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use( app.router );
@@ -57,6 +59,8 @@ app.configure( 'production', function (){
   app.use( express.cookieParser());
   app.use( express.bodyParser());
   app.use( routes.current_user );
+  app.use(express.methodOverride());
+  app.use(express.session({ secret: 'keyboard cat' }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use( app.router );
@@ -65,6 +69,7 @@ app.configure( 'production', function (){
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
+  console.log('not authenticated');
   res.redirect('/login')
 }
 
@@ -97,11 +102,11 @@ app.get('/login', function(req, res){
   
 // Routes
 app.get( '/', routes.index );
-app.get( '/main', routes.main );
-app.post( '/create', routes.create );
-app.get( '/destroy/:id', routes.destroy );
-app.get( '/edit/:id', routes.edit );
-app.post( '/update/:id', routes.update );
+app.get( '/main', ensureAuthenticated, routes.main );
+app.post( '/create', ensureAuthenticated, routes.create );
+app.get( '/destroy/:id',ensureAuthenticated, routes.destroy );
+app.get( '/edit/:id',ensureAuthenticated, routes.edit );
+app.post( '/update/:id',ensureAuthenticated, routes.update );
 
 var port = process.env.PORT || 5000;
 app.listen(port, function (){
