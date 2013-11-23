@@ -1,9 +1,15 @@
 var mongoose = require( 'mongoose' );
 var Todo     = mongoose.model( 'Todo' );
 var utils    = require( 'connect' ).utils;
-//var request = require('request');
 
 exports.index = function ( req, res, next ){
+res.render( 'index', {
+          title : 'Express Todo Example'
+      });
+};
+
+
+exports.main = function ( req, res, next ){
   var user_id = req.cookies ?
     req.cookies.user_id : undefined;
 
@@ -13,7 +19,7 @@ exports.index = function ( req, res, next ){
     exec( function ( err, todos ){
       if( err ) return next( err );
 
-      res.render( 'index', {
+      res.render( 'main', {
           title : 'Express Todo Example',
           todos : todos
       });

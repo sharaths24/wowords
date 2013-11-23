@@ -1,0 +1,11 @@
+<h1 id="page-title">Wowords!</h1>
+<div id="list">
+  <form action="/register" method="post" accept-charset="utf-8">
+    <div class="item-new">
+      <input class="input" type="text" name="user" /><br>
+      <input class="input" type="password" name="user" />
+    </div>
+  </form>
+<br><br>
+
+
